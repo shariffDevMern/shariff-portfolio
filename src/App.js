@@ -3,10 +3,11 @@ import "./App.css";
 import DrawerAppBar from "./components/DrawerAppBar";
 import Home from "./components/Home";
 import About from "./components/About";
+import Background from "./components/Background";
 
 function App() {
   return (
-    <>
+    <Background>
       <BrowserRouter>
         <DrawerAppBar />
 
@@ -15,7 +16,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </Background>
   );
 }
 

@@ -103,6 +103,10 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
+      
+        <Toolbar />
+        
+      
     </Box>
   );
 }

@@ -1,7 +1,7 @@
-import Background from "./Background";
+
 
 const About = () => {
-  return <Background>About</Background>;
+  return <div>ABout</div>;
 };
 
 export default About;

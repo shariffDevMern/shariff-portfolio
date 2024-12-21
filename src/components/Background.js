@@ -1,21 +1,14 @@
-import { Box, Toolbar } from "@mui/material";
+import { Box} from "@mui/material";
 
 const Background = (props) => {
   return (
     <Box
       sx={{
-        p: 3,
         backgroundImage: `url('/bgimg4.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "100vh",
-      }}
-    >
-      <Toolbar />
-      <Box
-        sx={{
-          height: "80vh",
-          overflowY: "auto",
+        overflowY: "auto",
           "&::-webkit-scrollbar": {
             width: "4px", // Width of the scrollbar
           },
@@ -30,10 +23,9 @@ const Background = (props) => {
           "&::-webkit-scrollbar-thumb:hover": {
             backgroundColor: "#555", // Hover effect for the scrollbar thumb
           },
-        }}
-      >
-        {props.children}
-      </Box>
+      }}
+    >
+      {props.children}
     </Box>
   );
 };

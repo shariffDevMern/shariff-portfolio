@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Typography, Avatar, Button } from "@mui/material";
-import Background from "./Background";
+
 
 const animations = {
   bounce: {
@@ -91,9 +91,9 @@ const animations = {
 
 const Home = () => {
   return (
-    <Background>
-      <Container>
-        <Grid marginTop={"100px"} container>
+    
+      <Container >
+        <Grid paddingBottom={2} marginTop={"100px"} container>
           <Grid
             sx={{
               width: "100%",
@@ -178,8 +178,9 @@ const Home = () => {
             />
           </Grid>
         </Grid>
+        
       </Container>
-    </Background>
+    
   );
 };
 
