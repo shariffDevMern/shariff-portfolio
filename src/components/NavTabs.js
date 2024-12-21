@@ -1,69 +1,74 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-const navItems = [{name:'Home',url:"/"}, {name:'About',url:"/about"},{name:'Projects',url:"/projects"},{name:'Skills',url:"/skills"}, {name:'Contact',url:"/contact"}];
+import * as React from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import { useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import EventNoteIcon from "@mui/icons-material/EventNote";
+import DrawRoundedIcon from "@mui/icons-material/DrawRounded";
+import ContactSupportRoundedIcon from "@mui/icons-material/ContactSupportRounded";
 
-function samePageLinkNavigation(event) {
-  if (
-    event.defaultPrevented ||
-    event.button !== 0 || // ignore everything but left-click
-    event.metaKey ||
-    event.ctrlKey ||
-    event.altKey ||
-    event.shiftKey
-  ) {
-    return false;
-  }
-  return true;
-}
-
-function LinkTab(props) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event) => {
-        // Routing libraries handle this, you can remove the onClick handle when using them.
-        
-        if (samePageLinkNavigation(event)) {
-          event.preventDefault();
-        }
-      }}
-      aria-current={props.selected && 'page'}
-      {...props}
-    />
-  );
-}
-
-LinkTab.propTypes = {
-  selected: PropTypes.bool,
-};
-
+const navItems = [
+  { name: "Home", url: "/", icon: <HomeIcon /> },
+  { name: "About", url: "/about", icon: <InfoIcon /> },
+  { name: "Projects", url: "/projects", icon: <EventNoteIcon /> },
+  { name: "Skills", url: "/skills", icon: <DrawRoundedIcon /> },
+  { name: "Contact", url: "/contact", icon: <ContactSupportRoundedIcon /> },
+];
 export default function NavTabs() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(() => {
+    const path = window.location.pathname;
+    if (path === "/") {
+      return "Home";
+    } else if (path === "/about") {
+      return "About";
+    } else if (path === "/projects") {
+      return "Projects";
+    } else if (path === "/skills") {
+      return "Skills";
+    } else if (path === "/contact") {
+      return "Contact";
+    }
+  });
+
+  const navigate = useNavigate();
 
   const handleChange = (event, newValue) => {
-    // event.type can be equal to focus with selectionFollowsFocus.
-    if (
-      event.type !== 'click' ||
-      (event.type === 'click' && samePageLinkNavigation(event))
-    ) {
-      setValue(newValue);
+    if (newValue === "Home") {
+      navigate("/", { replace: true });
+    } else if (newValue === "About") {
+      navigate("/about", { replace: true });
+    } else if (newValue === "Projects") {
+      navigate("/projects", { replace: true });
+    } else if (newValue === "Skills") {
+      navigate("/skills", { replace: true });
+    } else if (newValue === "Contact") {
+      navigate("/contact", { replace: true });
     }
+
+    setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: "100%" }}>
       <Tabs
         value={value}
-        textColor='secondary'
-        indicatorColor='secondary'
         onChange={handleChange}
-        aria-label="nav tabs example"
-        role="navigation"
+        textColor=""
+        indicatorColor="primary"
+        aria-label="secondary tabs example"
       >
-        {navItems.map(item=><LinkTab label={item.name} href={item.url} />)}
+        {navItems.map((item) => (
+          <Tab
+            value={item.name}
+            label={
+              <Box sx={{ display: "flex", alignItems: "center", gap: "7px;" }}>
+                {item.icon} {item.name}
+              </Box>
+            }
+          />
+        ))}
       </Tabs>
     </Box>
   );
