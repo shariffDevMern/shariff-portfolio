@@ -29,7 +29,7 @@ export default function ResponsiveStack() {
         spacing={{ xs: 1, sm: 2, md: 4 }}
       >
         {languages.map((language) => (
-          <Item   sx={{"&:hover":{
+          <Item key={language.name} sx={{"&:hover":{
             transform:'scale(1.1)'
           }}}>
             <Box>

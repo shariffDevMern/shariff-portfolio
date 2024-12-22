@@ -54,7 +54,7 @@ export default function AccordionFaq() {
   return (
     <div>
       {faqs.map((faq,index)=>
-        <Accordion sx={{...animations.slideDown}}>
+        <Accordion key={`question${index}`} sx={{...animations.slideDown}}>
         <AccordionSummary
           expandIcon={<ArrowDownwardIcon />}
           aria-controls={`question${index}-content`}
