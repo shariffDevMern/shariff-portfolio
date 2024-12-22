@@ -3,19 +3,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import EventNoteIcon from "@mui/icons-material/EventNote";
-import DrawRoundedIcon from "@mui/icons-material/DrawRounded";
-import ContactSupportRoundedIcon from "@mui/icons-material/ContactSupportRounded";
+import navItems from "../navItemsData";
 
-const navItems = [
-  { name: "Home", url: "/", icon: <HomeIcon /> },
-  { name: "About", url: "/about", icon: <InfoIcon /> },
-  { name: "Projects", url: "/projects", icon: <EventNoteIcon /> },
-  { name: "Skills", url: "/skills", icon: <DrawRoundedIcon /> },
-  { name: "Contact", url: "/contact", icon: <ContactSupportRoundedIcon /> },
-];
 export default function NavTabs() {
   const [value, setValue] = React.useState(() => {
     const path = window.location.pathname;
@@ -56,11 +45,12 @@ export default function NavTabs() {
         value={value}
         onChange={handleChange}
         textColor=""
-        indicatorColor="primary"
+        indicatorColor="secondary"
         aria-label="secondary tabs example"
       >
         {navItems.map((item) => (
           <Tab
+            key={item.name}
             value={item.name}
             label={
               <Box sx={{ display: "flex", alignItems: "center", gap: "7px;" }}>

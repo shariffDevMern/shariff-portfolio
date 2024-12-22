@@ -1,82 +1,90 @@
-import { Box, Container, Grid, Typography, Avatar, Button } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Avatar,
+  Button,
+} from "@mui/material";
 import animations from "./animations";
-import textBg from "./textbg"; 
+import textBg from "./textbg";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate()
   return (
-    
-      <Container >
-        <Grid paddingBottom={2} marginTop={"100px"} container>
-          <Grid
+    <Container>
+      <Grid paddingBottom={2} marginTop={"100px"} container>
+        <Grid
+          sx={{
+            width: "100%",
+            display: "flex",
+            gap: { md: 20, xs: 5 },
+            alignItems: "center",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "center",
+          }}
+          item
+        >
+          <Box
             sx={{
-              width: "100%",
-              display: "flex",
-              gap: { md: 20, xs: 5 },
-              alignItems: "center",
-              flexDirection: { xs: "column", md: "row" },
-              justifyContent: "center",
+              ...animations.fade,
+              ...textBg,
             }}
-            item
           >
-            <Box
-              sx={{
-                ...animations.fade,
-                ...textBg
-              }}
-            >
-              <Typography
-                color="secondary"
-                sx={{ display: "flex", alignItems: "center", gap: 2 }}
-                variant="h1"
-              >
+            <Box sx={{display:"flex",alignItems:'center',gap:2}}>
+              <Typography color="secondary" variant="h1" component={"h1"}>
                 Hello{" "}
-                <Typography
-                  variant="h2"
-                  sx={{
-                    ...animations.wobble,
-                  }}
-                >
-                  🖐
-                </Typography>
               </Typography>
-
               <Typography
-                sx={{
-                  ...animations.slideRight,
-                }}
                 variant="h2"
-              >
-                I'm Mukesh Sudhan
-              </Typography>
-              <Typography
-                color="primary"
-                marginBottom={1}
+                component={"h2"}
                 sx={{
-                  ...animations.slideLeft,
-                  
+                  ...animations.wobble,
                 }}
-                variant="h6"
               >
-                GRAPHIC DESIGNER
+                🖐
               </Typography>
-              <Button
-              
-               variant="outlined" color="secondary">Book Appoinment</Button>
             </Box>
-            <Avatar
+
+            <Typography
+              component={"h3"}
               sx={{
-                ...animations.scale,
-                height: 250,
-                width: 250,
+                ...animations.slideRight,
               }}
-              alt="profile"
-              src="/profile.jpeg"
-            />
-          </Grid>
+              variant="h2"
+            >
+              I'm Mukesh Sudhan
+            </Typography>
+            <Typography
+              component={"h5"}
+              color="primary"
+              marginBottom={1}
+              sx={{
+                ...animations.slideLeft,
+              }}
+              variant="h6"
+            >
+              GRAPHIC DESIGNER
+            </Typography>
+            <Button onClick={()=>{
+              navigate('/contact',{replace:true})
+            }} variant="outlined" color="secondary">
+              Book Appoinment
+            </Button>
+          </Box>
+          <Avatar
+            sx={{
+              ...animations.scale,
+              height: 250,
+              width: 250,
+            }}
+            alt="profile"
+            src="/profile.jpeg"
+          />
         </Grid>
-        
-      </Container>
-    
+      </Grid>
+    </Container>
   );
 };
 

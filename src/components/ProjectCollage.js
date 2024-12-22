@@ -28,7 +28,7 @@ export default function QuiltedImageList() {
             ...animations.pulsate
           },
         }}
-          key={item.img}
+          key={item.title}
           cols={item.cols || 1}
           rows={item.rows || 1}
         >

@@ -14,16 +14,46 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import NavTabs from "./NavTabs";
+import navItems from "../navItemsData";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Projects", "Skills", "Contact"];
 
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const location = useLocation();
+  const [activeTab, setActiveTab] = React.useState(() => {
+    const path = location.pathname;
+    if (path === "/") {
+      return "Home";
+    } else if (path === "/about") {
+      return "About";
+    } else if (path === "/projects") {
+      return "Projects";
+    } else if (path === "/skills") {
+      return "Skills";
+    } else if (path === "/contact") {
+      return "Contact";
+    }
+  });
+  const navigate = useNavigate();
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+  const handleChange = (newValue) => {
+    if (newValue === "Home") {
+      navigate("/", { replace: true });
+    } else if (newValue === "About") {
+      navigate("/about", { replace: true });
+    } else if (newValue === "Projects") {
+      navigate("/projects", { replace: true });
+    } else if (newValue === "Skills") {
+      navigate("/skills", { replace: true });
+    } else if (newValue === "Contact") {
+      navigate("/contact", { replace: true });
+    }
+    setActiveTab(newValue);
   };
 
   const drawer = (
@@ -34,9 +64,21 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton
+              sx={{
+                textAlign: "center",
+                backgroundColor: `${activeTab === item.name && "#2c6798"}`,
+                color: `${activeTab === item.name?"white":"#2c6798"}`,
+              }}
+            >
+              <ListItemText
+                color="primary"
+                onClick={() => {
+                  handleChange(item.name);
+                }}
+                primary={item.name}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -68,8 +110,12 @@ function DrawerAppBar(props) {
           </IconButton>
 
           <img
+            onClick={()=>{
+              navigate("/", { replace: true });
+            }}
             alt="logo"
             style={{
+              cursor:'pointer',
               height: "50px",
             }}
             src="/m-logo.png"
@@ -103,10 +149,8 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
-      
-        <Toolbar />
-        
-      
+
+      <Toolbar />
     </Box>
   );
 }
