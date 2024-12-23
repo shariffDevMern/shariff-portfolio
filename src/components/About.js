@@ -2,6 +2,7 @@ import { Container, Divider, Grid, Typography } from "@mui/material"
 import textBg from "./textbg";
 import animations from "./animations";
 import ResponsiveStack from "./languageStack";
+import MediaCard from "./EducationCard";
 
 
 const About = () => {
@@ -52,6 +53,29 @@ If you share a similar interest in technology, programming, or software developm
       }} marginLeft={{xs:0,sm:2}}  xs={12} md={9} item>
       
       <ResponsiveStack/>
+      
+      </Grid>
+      
+    </Grid>
+    <Grid sx={{...textBg}} container paddingY={2}>
+      <Grid sx={{...animations.slideLeft,
+
+}}  xs={12} md={1} item>
+      <Typography variant="h4" color="secondary">
+        Education
+      </Typography>
+      
+      </Grid>
+      <Grid xs={12} md={1} item>
+      <Divider sx={{display:{xs:'none',md:'block'}}} orientation="vertical" />
+      <Divider sx={{display:{md:'none'}}} orientation="horizontal" />
+      </Grid>
+      
+      <Grid sx={{...animations.slideRight,
+
+      }} marginLeft={{xs:0,sm:2}}  xs={12} md={9} item>
+      <MediaCard/>
+      
       
       </Grid>
       
