@@ -3,7 +3,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Link } from "@mui/material";
 
 export default function MediaCard(props) {
   const { projectData } = props;
@@ -24,7 +23,6 @@ export default function MediaCard(props) {
         <Typography variant="subtitle2">
           Technologies used: {projectData.skills.map((skill) => `${skill}, `)}
         </Typography>
-        <Link href={projectData.link}>Project link</Link>
       </CardContent>
     </Card>
   );

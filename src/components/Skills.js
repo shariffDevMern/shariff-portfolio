@@ -12,7 +12,7 @@ import * as React from "react";
 
 const technicalSkills = [
   {
-    altText: "python",
+    altText: "spring boot",
     url: "/python.png",
     name: "Python",
     level:4
@@ -36,15 +36,21 @@ const technicalSkills = [
     level:4
   },
   {
-    altText: "auto-cad",
-    url: "/cad.png",
-    name: "Auto Cad",
+    altText: "Node js",
+    url: "/nodejs.png",
+    name: "Node js",
     level:3
   },
   {
-    altText: "figma",
-    url: "/figma.png",
-    name: "Figma",
+    altText: "React js",
+    url: "/react.png",
+    name: "React js",
+    level:4
+  },
+  {
+    altText: "MySQL",
+    url: "/sql.png",
+    name: "MySQL",
     level:4
   },
 ];

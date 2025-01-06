@@ -1,88 +1,105 @@
-import { Container, Divider, Grid, Typography } from "@mui/material"
+import { Container, Divider, Grid, Typography } from "@mui/material";
 import textBg from "./textbg";
 import animations from "./animations";
 import ResponsiveStack from "./languageStack";
 import MediaCard from "./EducationCard";
 
-
 const About = () => {
-  return <Container>
-    
-    <Grid sx={{...textBg}} container paddingY={2}>
-      <Grid sx={{...animations.slideLeft,
+  return (
+    <Container>
+      <Grid sx={{ ...textBg }} container paddingY={2}>
+        <Grid sx={{ ...animations.slideLeft }} xs={12} md={1} item>
+          <Typography variant="h2" color="secondary">
+            About
+          </Typography>
+        </Grid>
+        <Grid xs={12} md={1} item>
+          <Divider
+            sx={{ display: { xs: "none", md: "block" } }}
+            orientation="vertical"
+          />
+          <Divider sx={{ display: { md: "none" } }} orientation="horizontal" />
+        </Grid>
 
-}}  xs={12} md={1} item>
-      <Typography variant="h2" color="secondary">
-        About
-      </Typography>
-      
+        <Grid
+          sx={{ ...animations.slideRight }}
+          marginLeft={{ xs: 0, sm: 2 }}
+          xs={12}
+          md={9}
+          item
+        >
+          <Typography variant="h6">
+            Hello, I'm Deepika P, an aspiring Software Developer currently
+            pursuing my B.Tech in Information Technology at Panimalar Institute
+            of Technology, Chennai. With a strong foundation in programming and
+            problem-solving, I am passionate about creating high-quality,
+            user-centric software solutions. From developing secure platforms
+            using blockchain to building responsive e-commerce websites, I have
+            honed my technical skills through academic and self-initiated
+            projects. My expertise spans frontend technologies like HTML, CSS,
+            JavaScript, and React.js, as well as backend frameworks like Node.js
+            and Spring Boot. I am also well-versed in databases such as MySQL
+            and tools like Git and GitHub. I have further enhanced my skill set
+            through certifications in Java, Full Stack Development, and Machine
+            Learning, and gained hands-on experience during internships in AI
+            and Machine Learning. My goal is to contribute meaningfully to the
+            tech industry while continuously learning and growing. If you share
+            a passion for technology, innovation, or software development, I'd
+            love to connect. Let’s collaborate and explore how we can drive
+            impactful solutions in this ever-evolving digital landscape!
+          </Typography>
+        </Grid>
       </Grid>
-      <Grid xs={12} md={1} item>
-      <Divider sx={{display:{xs:'none',md:'block'}}} orientation="vertical" />
-      <Divider sx={{display:{md:'none'}}} orientation="horizontal" />
-      </Grid>
-      
-      <Grid sx={{...animations.slideRight,
+      <Grid sx={{ ...textBg }} container paddingY={2}>
+        <Grid sx={{ ...animations.slideLeft }} xs={12} md={1} item>
+          <Typography variant="h4" color="secondary">
+            Languages-Known
+          </Typography>
+        </Grid>
+        <Grid xs={12} md={1} item>
+          <Divider
+            sx={{ display: { xs: "none", md: "block" } }}
+            orientation="vertical"
+          />
+          <Divider sx={{ display: { md: "none" } }} orientation="horizontal" />
+        </Grid>
 
-      }} marginLeft={{xs:0,sm:2}}  xs={12} md={9} item>
-      <Typography variant="h5">
-      Hello, I'm Mukesh Sudhan, a dedicated Computer Science student currently pursuing my B.E. at JNN Institute of Engineering. I have always been captivated by the world of programming and software development.
-My goal is to leverage my skills and knowledge to make a meaningful contribution to the tech industry, and I am open to exciting opportunities that align with my passion
-If you share a similar interest in technology, programming, or software development, I'd love to connect. Let's explore the endless possibilities that this digital world has to offer and grow together
-      </Typography>
-      
+        <Grid
+          sx={{ ...animations.slideRight }}
+          marginLeft={{ xs: 0, sm: 2 }}
+          xs={12}
+          md={9}
+          item
+        >
+          <ResponsiveStack />
+        </Grid>
       </Grid>
-      
-    </Grid>
-    <Grid sx={{...textBg}} container paddingY={2}>
-      <Grid sx={{...animations.slideLeft,
+      <Grid sx={{ ...textBg }} container paddingY={2}>
+        <Grid sx={{ ...animations.slideLeft }} xs={12} md={1} item>
+          <Typography variant="h4" color="secondary">
+            Education
+          </Typography>
+        </Grid>
+        <Grid xs={12} md={1} item>
+          <Divider
+            sx={{ display: { xs: "none", md: "block" } }}
+            orientation="vertical"
+          />
+          <Divider sx={{ display: { md: "none" } }} orientation="horizontal" />
+        </Grid>
 
-}}  xs={12} md={1} item>
-      <Typography variant="h4" color="secondary">
-        Languages-Known
-      </Typography>
-      
+        <Grid
+          sx={{ ...animations.slideRight }}
+          marginLeft={{ xs: 0, sm: 2 }}
+          xs={12}
+          md={9}
+          item
+        >
+          <MediaCard />
+        </Grid>
       </Grid>
-      <Grid xs={12} md={1} item>
-      <Divider sx={{display:{xs:'none',md:'block'}}} orientation="vertical" />
-      <Divider sx={{display:{md:'none'}}} orientation="horizontal" />
-      </Grid>
-      
-      <Grid sx={{...animations.slideRight,
-
-      }} marginLeft={{xs:0,sm:2}}  xs={12} md={9} item>
-      
-      <ResponsiveStack/>
-      
-      </Grid>
-      
-    </Grid>
-    <Grid sx={{...textBg}} container paddingY={2}>
-      <Grid sx={{...animations.slideLeft,
-
-}}  xs={12} md={1} item>
-      <Typography variant="h4" color="secondary">
-        Education
-      </Typography>
-      
-      </Grid>
-      <Grid xs={12} md={1} item>
-      <Divider sx={{display:{xs:'none',md:'block'}}} orientation="vertical" />
-      <Divider sx={{display:{md:'none'}}} orientation="horizontal" />
-      </Grid>
-      
-      <Grid sx={{...animations.slideRight,
-
-      }} marginLeft={{xs:0,sm:2}}  xs={12} md={9} item>
-      <MediaCard/>
-      
-      
-      </Grid>
-      
-    </Grid>
-    
-    
-  </Container>;
+    </Container>
+  );
 };
 
 export default About;

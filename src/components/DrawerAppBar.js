@@ -59,7 +59,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUKESH S
+        DEEPIKA P
       </Typography>
       <Divider />
       <List>
@@ -118,7 +118,7 @@ function DrawerAppBar(props) {
               cursor:'pointer',
               height: "50px",
             }}
-            src="/m-logo.png"
+            src="/profile.png"
           />
 
           <Box

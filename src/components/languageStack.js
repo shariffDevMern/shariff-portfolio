@@ -5,9 +5,8 @@ import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
 
 const languages = [
-  { name: "English", level: ["Spoken",'Written'] },
+  { name: "English", level: ["Spoken", "Written"] },
   { name: "Tamil", level: ["Spoken", "Written"] },
-  { name: "Hindi", level: ["Spoken"] },
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -29,15 +28,20 @@ export default function ResponsiveStack() {
         spacing={{ xs: 1, sm: 2, md: 4 }}
       >
         {languages.map((language) => (
-          <Item key={language.name} sx={{"&:hover":{
-            transform:'scale(1.1)'
-          }}}>
+          <Item
+            key={language.name}
+            sx={{
+              "&:hover": {
+                transform: "scale(1.1)",
+              },
+            }}
+          >
             <Box>
-              <Typography sx={{color:"white"}} variant="subtitle1">{language.name}</Typography>
-              <Typography sx={{color:"white"}} variant="subtitle2">
-                {language.level.map(eachLevel=>
-                    `${eachLevel} `
-                )}
+              <Typography sx={{ color: "white" }} variant="subtitle1">
+                {language.name}
+              </Typography>
+              <Typography sx={{ color: "white" }} variant="subtitle2">
+                {language.level.map((eachLevel) => `${eachLevel} `)}
               </Typography>
             </Box>
           </Item>

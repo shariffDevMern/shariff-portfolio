@@ -1,17 +1,10 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  Avatar,
-  Button,
-} from "@mui/material";
+import { Box, Container, Grid, Typography, Button } from "@mui/material";
 import animations from "./animations";
 import textBg from "./textbg";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Container>
       <Grid paddingBottom={2} marginTop={"100px"} container>
@@ -32,7 +25,7 @@ const Home = () => {
               ...textBg,
             }}
           >
-            <Box sx={{display:"flex",alignItems:'center',gap:2}}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Typography color="secondary" variant="h1" component={"h1"}>
                 Hello{" "}
               </Typography>
@@ -54,7 +47,7 @@ const Home = () => {
               }}
               variant="h2"
             >
-              I'm Mukesh Sudhan
+              I'm DEEPIKA P
             </Typography>
             <Typography
               component={"h5"}
@@ -65,23 +58,18 @@ const Home = () => {
               }}
               variant="h6"
             >
-              GRAPHIC DESIGNER
+              Java Full-Stack Developer
             </Typography>
-            <Button onClick={()=>{
-              navigate('/contact',{replace:true})
-            }} variant="outlined" color="secondary">
-              Book Appoinment
+            <Button
+              onClick={() => {
+                navigate("/contact", { replace: true });
+              }}
+              variant="outlined"
+              color="secondary"
+            >
+              Contact Me
             </Button>
           </Box>
-          <Avatar
-            sx={{
-              ...animations.scale,
-              height: 250,
-              width: 250,
-            }}
-            alt="profile"
-            src="/profile.jpeg"
-          />
         </Grid>
       </Grid>
     </Container>

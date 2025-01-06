@@ -7,18 +7,18 @@ import Typography from "@mui/material/Typography";
 export default function MediaCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia sx={{ height: 140 }} image="/jnn.jpeg" title="green iguana" />
+      <CardMedia sx={{ height: 140 }} image="/college-photo.jpg" title="green iguana" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          J.N.N Institute of Engineering
+          Panimalar Institute of Technology
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          Bachelor's degree, Computer Science
+          B.Tech, Information Technology
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          'Grade A'
+          'GPA 8.7/10'
         </Typography>
-        <Typography variant="subtitle2">Aug 2020 - Jun 2024</Typography>
+        <Typography variant="subtitle2">Jun 2020 - April 2024</Typography>
       </CardContent>
     </Card>
   );
